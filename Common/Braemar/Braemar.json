@@ -1,0 +1,24 @@
+{
+  "courseId": 0,
+  "courseVersion": 0,
+  "name": "Braemar GC - Championship",
+  "longitude": -93.386910736201,
+  "latitude": 44.867166778592,
+  "city": "Edina",
+  "state": "MN",
+  "country": "US",
+  "phone": "",
+  "noOfHoles": 9,
+  "mensPar": 36,
+  "womensPar": 36,
+  "isLatest": "T",
+  "courseLocaleName": {
+    "en": "Braemar GC - Championship"
+  },
+  "courseTees": [],
+  "snapshotData": [],
+  "mapTypeId": 1,
+  "pinLocations": [],
+  "isFavorite": false,
+  "lastPlayedDate": null
+}
