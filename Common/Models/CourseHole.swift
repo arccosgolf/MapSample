@@ -227,15 +227,8 @@ class CourseHole: NSObject, NSSecureCoding, Decodable {
        return self.holeTees.compactMap({ $0 })
     }()
     
-    lazy var holeDistance: CLLocationDistance? = {
-        guard let furthestTeeLocation = furthestTeeLocation, let closestGreenFromFairwayCenter = closestGreenLocation, let furthestGreenFromFairwayCenter = furthestGreenLocation else { return nil }
-        if let furthestFairwayCenterFromTee = furthestFairwayCenterLocation {
-            let teeToCenterDistacne = furthestTeeLocation.distance(from: furthestFairwayCenterFromTee)
-            let centerToGreenDistacne = furthestFairwayCenterFromTee.distance(from: furthestGreenFromFairwayCenter)
-            return teeToCenterDistacne + centerToGreenDistacne
-        } else {
-            return furthestTeeLocation.distance(from: furthestGreenFromFairwayCenter)
-        }
+    lazy var holeDistance: CLLocationDistance = {
+        return max(heightOfBoundingRectangle(), widthOfBoundingRectangle())
     }()
     
     lazy var greenDistance: CLLocationDistance? = {

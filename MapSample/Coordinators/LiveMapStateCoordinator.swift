@@ -32,6 +32,14 @@ final class LiveMapStateCoordinator {
                 courseData.holes.append(holeData)
             }
             self.course = CurrentValueSubject<Course?, Never>(courseData)
+            Task {
+                let mapTileDownloader = MapTileDownloader(course: courseData)
+                do {
+                    try await mapTileDownloader.downloadSnapshots()
+                } catch {
+                    print("Failed to download map tiles for \(courseData.name). Error: \(error)")
+                }
+            }
         }catch {
             self.course = CurrentValueSubject<Course?, Never>(nil)
         }
